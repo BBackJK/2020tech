@@ -1,6 +1,4 @@
-// 클래스와 객체, 생성자에 대한 기본 코드 
-
-package Dog;
+package J200504;
 
 import java.util.Scanner;
 
