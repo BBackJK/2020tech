@@ -1,3 +1,5 @@
+# 교재 p.51 예제
+
 celsius = 37
 
 def fahrenhite(c):

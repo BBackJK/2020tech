@@ -1,3 +1,5 @@
+# 교재 p.53 예제
+
 distance = 384400
 unit = 10000
 manUnit, remainder = divmod(distance, unit)

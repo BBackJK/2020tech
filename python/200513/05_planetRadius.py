@@ -1,3 +1,5 @@
+# 교재 p.58 예제
+
 planet = input('원하는 행성은? ')
 strRadius = input(planet + ' 반지름은? ')
 radius = int(strRadius)
