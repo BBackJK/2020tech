@@ -1,4 +1,5 @@
-**.ipynb
+ve_python/pycharm/*/*/*.ipynb
+ve_python/pycharm/*/*.ipynb
 ve_python/ve/evenv/*
 ve_python/ve/evtenv/*
 ve_python/ve/myve/ve-mp/*
