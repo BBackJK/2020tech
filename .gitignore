@@ -1,3 +1,4 @@
+# Virtual Environment Python gitignore
 ve_python/pycharm/*/*/*.ipynb
 ve_python/pycharm/*/*.ipynb
 ve_python/ve/evenv/*
@@ -5,4 +6,5 @@ ve_python/ve/evtenv/*
 ve_python/ve/myve/ve-mp/*
 ve_python/ve/myve/ve-np/*
 
+# JSP Servlet gitignore
 jsp_servlet/.metadata
