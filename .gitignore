@@ -8,3 +8,7 @@ ve_python/ve/myve/ve-np/*
 
 # JSP Servlet gitignore
 jsp_servlet/.metadata
+
+# data_analysis / PycharmExample gitignore
+data_analysis/PycharmExample/*/*.idea
+data_analysis/PycharmExample/*.idea
