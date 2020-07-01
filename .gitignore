@@ -12,3 +12,7 @@ jsp_servlet/.metadata
 # data_analysis / PycharmExample gitignore
 data_analysis/PycharmExample/*/*.idea
 data_analysis/PycharmExample/*.idea
+
+# django gitignore
+django/PycharmProject/*/*/.idea
+django/PycharmProject/*/*/venv
