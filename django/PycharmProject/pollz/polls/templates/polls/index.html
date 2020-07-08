@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Polls</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'polls/css/main.css' %}" />
+    </head>
+    <body>
+        <div class="logo">
+            <img src="{% static 'polls/images/' %}/polls.jpg" />
+        </div>
+
+        {% if lasted_question_list %}
+            <ul>
+            {% for question in lasted_question_list %}
+
+                <li>
+                    <a href="/polls/{{question.id}}/">{{question.question_text}}</a>
+                </li>
+            {% endfor %}
+            </ul>
+
+        {% else %}
+        <p>설문지가 없습니다.</p>
+        {% endif %}
+  </body>
+</html>

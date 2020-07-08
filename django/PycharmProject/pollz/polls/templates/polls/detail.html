@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Polls</title>
+        <style>
+            ul, li {list-style:none;}
+        </style>
+    </head>
+    <body>
+
+        <h1>설문 상세</h1>
+
+        {% if error_message %}
+            <strong>{{error_message}}</strong>
+        {% endif %}
+
+        <h2>{{question}}</h2>
+
+        <br/>
+
+        {{question.choice_set.all}}
+        <!-- url 'polls:vote' 는 polls/urls.py 에 있는 polls의 name이 vote인 path를 참조한 것.-->
+        <form action="{% url 'polls:vote' question.id %} " method="post">
+            <!-- csrf_token을 해주어야 forbidden이 안뜬다!!-->
+            {% csrf_token %}
+            <ul>
+                {% for choice in question.choice_set.all %}
+                    <li>
+                        <input type="radio" name="choice" id="choice_{{forloop.counter}}" value="{{choice.id}}"/>
+                        <label for="choice_{{forloop.counter}}">{{choice.choice_text}}</label>
+                    </li>
+                {% endfor %}
+            </ul>
+            <button type="submit">Vote</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+body {
+    background-color: gray;
+}
+
+li a {
+    color: green;
+}
+
+.logo {
+    height: 100px;
+}
