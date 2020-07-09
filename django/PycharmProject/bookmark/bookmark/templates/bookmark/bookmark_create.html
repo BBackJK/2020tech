@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>북마크 추가하기</h1>
+
+    <form method="post">
+        <!-- csrf 토큰 추가-->
+        {% csrf_token %}
+        <!-- views.py에 BookmarkCreateView에서 fields에 있는 값에 의해 결정-->
+        {{form.as_p}}
+        <button type="submit">저장</button>
+    </form>
+{% endblock %}

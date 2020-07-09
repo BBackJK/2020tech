@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>북마크</title>
+</head>
+<body>
+    <h1>북마크 상세 정보</h1>
+
+    <p>
+        이름: {{object.site_name}}
+    </p>
+    <p>
+        주소: {{object.url}}
+    </p>
+
+    <div>
+        <a href="{% url 'list' %}">목록</a>
+    </div>
+</body>
+</html>
