@@ -17,6 +17,8 @@ class BookmarkListView(ListView):
     model = Bookmark
     # 컨텍스트 추가
     context_object_name = 'bookmark_list'
+    # 페이징 기능 추가
+    paginate_by = 5
 
 
 class BookmarkCreateView(CreateView):
