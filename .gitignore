@@ -18,3 +18,6 @@ data_analysis/PycharmExample/*/venv
 # django gitignore
 django/PycharmProject/*/.idea
 django/PycharmProject/*/venv
+
+
+spring_vue

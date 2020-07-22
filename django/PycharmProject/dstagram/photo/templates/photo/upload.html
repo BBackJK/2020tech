@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    - 포토 업로드
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-xs">업로드</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+{% endblock %}

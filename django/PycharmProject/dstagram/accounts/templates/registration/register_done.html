@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    - 회원 가입
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+
+                <p class="alert alert-info">{{new_user.username}}님, 성공적으로 회원가입이 되었습니다.</p>
+
+                <a href="/" class="btn btn-primary">메인으로 이동</a>
+
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+{% endblock %}

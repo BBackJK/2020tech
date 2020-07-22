@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    - 포토 목록
+{% endblock %}
+
+{% block content %}
+
+    {% for post in post_list %}
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div>
+                    <img src="{{post.photo.url}}" style="width: 100%;" />
+                </div>
+                <p>{{post.text}}</p>
+                <div class="text-left">
+                    <p>{{post.author.username}}</p>
+                </div>
+                <div class="text-right">
+                    <a href="{% url 'photo:photo_detail' pk=post.id %}" class="btn btn-info btn-xs">상세보기</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+    {% endfor %}
+
+{% endblock %}

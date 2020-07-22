@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    - 포토 상세보기
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div>
+                    <img src="{{object.photo.url}}" style="width: 100%;" />
+                </div>
+                <p>{{object.text}}</p>
+                <div class="text-left">
+                    <p>{{object.author.username}}</p>
+                </div>
+                <div class="text-right">
+                    <a href="{% url 'photo:photo_list' %}" class="btn btn-outline-info btn-sm">목록</a>
+                    <a href="{% url 'photo:photo_update' pk=object.id %}" class="btn btn-outline-success btn-sm">수정</a>
+                    <a href="{% url 'photo:photo_delete' pk=object.id %}" class="btn btn-outline-danger btn-sm">삭제</a>
+                </div>
+
+                <div>
+                    {% load disqus_tags %}
+                    {% disqus_show_comments %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+
+{% endblock %}
