@@ -76,7 +76,11 @@ public class BoardDBCP {
 			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
+		} 
+		catch (NullPointerException ne) {
+			ne.getStackTrace();
+		} 
+		finally {
 			disconnect();
 		}
 		return list;
@@ -182,7 +186,7 @@ public class BoardDBCP {
 	}
 	
 	// 데이터베이스에서 인자인 id와 passwd가 일치하는지 검사하는 메소드
-	public boolean isEquals(int id, String passwd) {
+	public boolean isPasswd(int id, String passwd) {
 		boolean success = false;
 		connect();
 		
@@ -195,7 +199,6 @@ public class BoardDBCP {
 			String orgPasswd = rs.getString(1);
 			
 			if (passwd.equals(orgPasswd)) success= true;
-			System.out.println(success);
 			rs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
