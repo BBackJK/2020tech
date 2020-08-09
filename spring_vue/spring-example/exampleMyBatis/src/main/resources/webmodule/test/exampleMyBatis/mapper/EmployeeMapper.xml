@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="webmodule.test.exampleMyBatis.mapper.EmployeeMapper">
+	
+	<sql id="selectEmployeePart">
+		SELECT a.empno AS empno,
+			   a.ename AS ename,
+			   a.job AS job,
+			   a.hiredate AS hiredate,
+			   a.sal AS sal,
+			   a.deptno AS deptno,
+			   b.dname AS deptName
+			   FROM emp a JOIN dept b ON a.deptno = b.deptno
+	</sql>
+	
+	<resultMap id="employeeMap" type="Employee">
+		<id property="empno" column="empno" />
+		<result property="ename" column="ename"/>
+		<result property="job" column="job"/>
+		<result property="hiredate" column="hiredate"/>
+		<result property="sal" column="sal"/>
+		<result property="deptno" column="deptno"/>
+		<association property="department">
+			<id property="deptno" column="dept_deptno" />
+			<result property="dname" column="deptName"/>
+			<result property="loc" column="loc"/>
+		</association>
+	</resultMap>
+	
+	
+	<select id="getById" parameterType="Integer" resultMap="employeeMap">
+		SELECT a.empno AS empno,
+			   a.ename AS ename,
+			   a.job AS job,
+			   a.hiredate AS hiredate,
+			   a.sal AS sal,
+			   a.deptno AS deptno,
+			   b.deptno AS dept_deptno,
+			   b.dname AS deptName,
+			   b.loc AS loc
+		FROM emp a JOIN dept b ON a.deptno = b.deptno
+		WHERE a.empno = #{empno}
+	</select>
+	
+	<select id="searchByName" parameterType="EmployeeSearchParam" resultType="Employee">
+		<include refid="selectEmployeePart"></include>
+			WHERE 1 = 1
+		<if test='employeeName != null and employeeName != ""'>
+			AND a.ename LIKE concat(#{employeeName}, '%')
+		</if>
+		<if test='deptName != null and deptName != ""'>
+			AND b.dname LIKE concat(#{deptName}, '%')
+		</if>		
+	</select>
+	
+	<select id="getByDeptName" parameterType="String" resultType="Employee">
+		<include refid="selectEmployeePart"></include>
+			   WHERE b.dname = #{deptName}
+	</select>
+	
+	<update id="raiseSalary" parameterType="Employee">
+		UPDATE emp
+		   SET sal = #{sal}
+		 WHERE empno = #{empno} 
+	
+	</update>
+</mapper>
