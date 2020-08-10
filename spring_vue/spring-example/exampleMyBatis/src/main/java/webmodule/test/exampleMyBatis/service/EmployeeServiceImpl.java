@@ -30,9 +30,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}
 		
 		Employee employee = employeeMapper.getById(empno); 
-		Department department = departmentMapper.getDepartmentById(employee.getDeptno());	
+//		Department department = departmentMapper.getDepartmentById(employee.getDeptno());	
 		
-		employee.setDepartment(department);
+//		employee.setDepartment(department);
 		
 		return employee;
 	}
